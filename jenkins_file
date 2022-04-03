@@ -6,13 +6,13 @@ pipeline {
     stages {
         stage('Build docker image'){
             steps{
-                sh 'docker build -t maromzur/wog4:tagname .'
+                sh 'docker build -t maromzur/wog-4:tagname .'
             }
         }
         stage('Run & Test') {
             agent {
                 docker {
-                    image "maromzur/wog4:tagname"
+                    image "maromzur/wog-4:tagname"
                     reuseNode true
                 }
             }
